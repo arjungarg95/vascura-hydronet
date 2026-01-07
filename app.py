@@ -1,247 +1,263 @@
 import streamlit as st
 import plotly.graph_objects as go
-import pandas as pd
 import numpy as np
-from datetime import datetime
+import pandas as pd
 
-# --- CONFIGURATION & BRANDING ---
+# --- SYSTEM CONFIGURATION ---
 st.set_page_config(
-    page_title="Vascura HydroNet | Advanced Urban Resilience",
+    page_title="VASCURA | HydroNet Infrastructure Portal",
     page_icon="💠",
     layout="wide",
+    initial_sidebar_state="collapsed",
 )
 
-# --- ADVANCED CUSTOM STYLING (The "Handcrafted" Look) ---
+# --- VASCURA DESIGN LANGUAGE (Custom CSS) ---
 st.markdown("""
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=JetBrains+Mono:wght@300;500&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
     :root {
-        --primary: #00e5ff;
+        --primary: #00f2ff;
         --secondary: #00ff9d;
-        --bg-dark: #03070c;
-        --card-bg: rgba(13, 20, 30, 0.7);
+        --bg: #020408;
+        --card: #0a1018;
     }
 
-    /* Global Overrides */
-    .main { background-color: var(--bg-dark); }
-    p, li { font-family: 'Plus Jakarta Sans', sans-serif; color: #a1a1aa; line-height: 1.8; font-size: 1.05rem; }
-    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; letter-spacing: -0.03em; }
-
-    /* Custom Official Header */
-    .official-header {
-        border-left: 4px solid var(--primary);
-        padding-left: 20px;
-        margin-bottom: 40px;
+    .stApp { background-color: var(--bg); color: #cbd5e1; }
+    
+    /* Center Stage Hero Branding */
+    .hero-container {
+        text-align: center;
+        padding: 80px 20px;
+        background: radial-gradient(circle at center, rgba(0, 242, 255, 0.08) 0%, transparent 70%);
+    }
+    .hero-title {
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 7rem !important;
+        font-weight: 800 !important;
+        letter-spacing: -0.05em !important;
+        margin-bottom: 0px !important;
+        background: linear-gradient(to bottom, #fff 40%, #64748b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+        letter-spacing: 0.6em;
+        text-transform: uppercase;
+        color: var(--primary);
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        font-weight: 400;
+        margin-top: -10px;
     }
 
-    /* Engineering Card Style */
+    /* Industrial Card Style */
     .eng-card {
-        background: var(--card-bg);
+        background: var(--card);
         border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 24px;
-        padding: 35px;
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        padding: 40px;
+        margin-top: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.4);
     }
-    .eng-card:hover {
-        border-color: var(--primary);
-        box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
-    }
-
-    /* Sidebar Navigation */
-    section[data-testid="stSidebar"] {
-        background-color: #060a0f !important;
-        border-right: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    /* Status Pill */
-    .status-pill {
-        background: rgba(0, 229, 255, 0.1);
+    
+    .tech-pill {
+        background: rgba(0, 242, 255, 0.1);
         color: var(--primary);
-        border: 1px solid var(--primary);
-        padding: 4px 12px;
-        border-radius: 100px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
+        padding: 6px 14px;
+        border-radius: 8px;
+        font-family: 'JetBrains Mono';
+        font-size: 0.8rem;
+        border: 1px solid rgba(0, 242, 255, 0.2);
+        margin-right: 10px;
     }
+
+    /* Tab Customization */
+    .stTabs [data-baseweb="tab-list"] { gap: 40px; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .stTabs [data-baseweb="tab"] { font-size: 1rem; font-family: 'Plus Jakarta Sans'; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+    .stTabs [data-baseweb="tab--active"] { color: var(--primary) !important; }
     </style>
     """, unsafe_allow_html=True)
 
-# --- SIDEBAR & GLOBAL STATS ---
-with st.sidebar:
-    st.markdown("### VASCURA // ARCHIVE")
-    st.markdown("`SYSTEM STATUS: OPTIMIZED`")
-    nav = st.radio("ARCHIVE SECTIONS", [
-        "01 // EXECUTIVE SUMMARY", 
-        "02 // BIOMIMETIC HARDWARE", 
-        "03 // PIXGNN COMPUTATIONAL CORE", 
-        "04 // STRATEGIC OPERATIONS", 
-        "05 // THE VASCURA TEAM"
-    ])
-    st.divider()
-    st.markdown("### PROJECT TELEMETRY")
-    st.metric("PARTICLE RES", "20μm", "Target")
-    st.metric("HYDRAULIC COND", "94%", "Predicted")
-    st.caption("Last Update: Jan 2026")
-
-# --- SECTION 01: EXECUTIVE SUMMARY ---
-if nav == "01 // EXECUTIVE SUMMARY":
-    st.markdown('<div class="official-header">', unsafe_allow_html=True)
-    st.markdown('<span class="status-pill">THINK Scholar // Conrad Finalist</span>', unsafe_allow_html=True)
-    st.title("Vascura HydroNet: The Future of Urban Water Resilience")
-    st.markdown('</div>', unsafe_allow_html=True)
-
-    col1, col2 = st.columns([1.5, 1])
-    with col1:
-        st.write("""
-        Microplastic pollution is the most pervasive form of environmental contamination in modern urban environments. 
-        Traditional stormwater infrastructure acts as a passive conduit, funneling tire wear, synthetic textiles, 
-        and fragmented packaging directly into our food webs.
-
-        **Vascura HydroNet** is a decentralized, intelligent filtration ecosystem. By inverting the 
-        mechanics of gymnosperm xylem and coupling it with Physics-Informed Neural Networks, we transform 
-        cities from pollution sources into active purification hubs.
-        """)
-        
-        st.markdown("### CORE OBJECTIVES")
-        st.markdown("""
-        - **Precision Interception:** Capturing micro-particles without catastrophic pressure loss.
-        - **Predictive Placement:** Using Digital Twins to identify 'Super-Spreader' nodes in pipe networks.
-        - **Resource Circularity:** Converting waste into industrial-grade graphene and biochar.
-        """)
-    
-    with col2:
-        st.image("https://images.unsplash.com/photo-1518066000714-58c45f1a2c0a?auto=format&fit=crop&q=80&w=800", caption="Urban Runoff: The Invisible Threat")
-
-# --- SECTION 02: BIOMIMETIC HARDWARE ---
-elif nav == "02 // BIOMIMETIC HARDWARE":
-    st.title("02 // Hardware Engineering")
-    st.write("Solving the 'Permeability-Selectivity' trade-off through 400 million years of botanical evolution.")
-
-    
-
-    c1, c2 = st.columns(2)
-    with c1:
-        st.markdown("""
-        <div class="eng-card">
-            <h3>Torus-Margo Architecture</h3>
-            <p>Our filter utilizes a biomimetic pit membrane structure. Unlike static meshes, the <b>Torus-Margo</b> acts as a dynamic valve. 
-            Under normal flow, the porous 'margo' traps microplastics. During storm surges, the central 'torus' helps regulate 
-            hydraulic conductivity, preventing the embolism-like failures seen in traditional filters.</p>
-            <span style="color:#00e5ff; font-family:'JetBrains Mono';">FABRICATION: SLA PHOTOPOLYMERIZATION</span>
-        </div>
-        """, unsafe_allow_html=True)
-    
-    with c2:
-        st.markdown("""
-        <div class="eng-card">
-            <h3>Graded Layering System</h3>
-            <p>We distribute the filtration load across hierarchical pathways. By grading the 'vascular' channels within 
-            the modular cartridge, we reduce the rate of surface blinding (clogging), extending the maintenance 
-            cycle by a predicted <b>240%</b> over standard storm-drain screens.</p>
-            <span style="color:#00ff9d; font-family:'JetBrains Mono';">RESOLUTION: 20 MICROMETER</span>
-        </div>
-        """, unsafe_allow_html=True)
-
-    st.divider()
-    st.subheader("Physical Prototype Iteration")
-    st.write("Iteration from Fusion 360 CAD to SLA fabrication allows us to replicate the functional micrometer-scale features of the torus-margo.")
-
-# --- SECTION 03: PIXGNN COMPUTATIONAL CORE ---
-elif nav == "03 // PIXGNN COMPUTATIONAL CORE":
-    st.title("03 // Computational Intelligence")
-    st.write("Bridging Fluid Dynamics and Graph Theory via Physics-Informed Neural Networks.")
-    
-    st.latex(r'''
-    \underbrace{\frac{\partial C}{\partial t} + \mathbf{u} \cdot \nabla C}_{\text{Advection}} = \underbrace{D \nabla^2 C}_{\text{Diffusion}} + \underbrace{\sum S_i}_{\text{Sources}}
-    ''')
-    
-    st.markdown("""
-    ### The PIXGNN Framework
-    The city is a vascular network. Our **Physics-Informed Xylem Graph Neural Network (PIXGNN)** treats pipes as edges 
-    and junctions as nodes. We apply a spatially-extended **SIR (Susceptible-Infected-Recovered)** model where:
-    - **Infected Nodes:** High concentration microplastic hotspots.
-    - **Recovered Nodes:** Nodes protected by Vascura filtration units.
-    """)
-
-    # --- INTERACTIVE SIMULATION (PLOTLY) ---
-    st.subheader("Simulated Contaminant Plume Convergence")
-    x = np.linspace(0, 10, 100)
-    y = np.exp(-0.5 * (x - 5)**2) + np.random.normal(0, 0.05, 100)
-    
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(x=x, y=y, mode='lines', name='Pollutant Load', line=dict(color='#00e5ff', width=3)))
-    fig.update_layout(
-        template="plotly_dark", 
-        paper_bgcolor='rgba(0,0,0,0)', 
-        plot_bgcolor='rgba(0,0,0,0)',
-        xaxis_title="Distance from Entry Point (km)",
-        yaxis_title="Concentration (mg/L)"
-    )
-    st.plotly_chart(fig, use_container_width=True)
-
-# --- SECTION 04: STRATEGIC OPERATIONS ---
-elif nav == "04 // STRATEGIC OPERATIONS":
-    st.title("04 // Business & Strategic Roadmap")
-    
-    col1, col2 = st.columns([1, 1.5])
-    
-    with col1:
-        st.markdown("### REVENUE STREAMS")
-        st.write("""
-        1. **MUNICIPAL CAPEX:** Direct sale and installation of modular hardware.
-        2. **SaaS (Software as a Service):** Subscription to the PIXGNN Digital Twin for predictive maintenance alerts.
-        3. **CIRCULAR RECOVERY:** Wholesale revenue from recovered carbon materials (Graphene/Biochar).
-        """)
-        
-    with col2:
-        st.markdown("### IMPLEMENTATION TIMELINE")
-        timeline = {
-            "Phase": ["R&D", "SLA Prototyping", "Hydraulic Testing", "Pilot Deployment", "Scale-Up"],
-            "Completion": [100, 85, 40, 10, 0]
-        }
-        st.table(pd.DataFrame(timeline))
-
-    st.markdown("""
-    <div class="eng-card" style="border-left: 4px solid #00ff9d;">
-        <h3>Circular Economy Impact</h3>
-        <p>By processing captured microplastics through <b>Flash-Joule Heating</b>, we recover carbon that would otherwise 
-        enter the ocean. This graphene derivative is high-purity and suitable for soil remediation, effectively 
-        turning an environmental liability into a municipal asset.</p>
+# --- HERO SECTION ---
+st.markdown("""
+    <div class="hero-container">
+        <h1 class="hero-title">VASCURA</h1>
+        <p class="hero-subtitle">HydroNet Systems</p>
+        <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #94a3b8; font-family: 'Plus Jakarta Sans';">
+            Pioneering a decentralized, bio-inspired filtration infrastructure. 
+            By merging the physics of gymnosperm xylem with Graph Neural Intelligence, 
+            we intercept microplastic contamination at the urban source.
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
-# --- SECTION 05: THE VASCURA TEAM ---
-elif nav == "05 // THE VASCURA TEAM":
-    st.title("05 // Leadership & Expertise")
+# --- CLEAN NAVIGATION TABS ---
+tabs = st.tabs([
+    "Executive Vision", 
+    "Biomimetic Architecture", 
+    "Computational Core", 
+    "Industrial Scale",
+    "Technical Personnel"
+])
+
+# --- TAB 1: EXECUTIVE VISION ---
+with tabs[0]:
+    st.markdown("<br>", unsafe_allow_html=True)
+    c1, c2 = st.columns([1.2, 1])
+    with c1:
+        st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+        st.subheader("The Infrastructure Crisis")
+        st.write("""
+        Current municipal stormwater systems are designed primarily for volumetric management, not particulate precision. 
+        As a result, they act as high-speed conduits for micro-debris, bypassing infrastructure and entering food webs. 
+        
+        **VASCURA** transforms these passive networks into active, intelligent filtration nodes. Our system is designed 
+        to be installed within existing storm drain geometries, utilizing biological principles to maintain 
+        high hydraulic conductivity while capturing particles down to the 20μm scale.
+        """)
+        st.markdown('</div>', unsafe_allow_html=True)
+    
+    with c2:
+        st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+        st.subheader("Physical Constraints")
+        # Actual scientific indicators instead of "fake performance"
+        st.write("• **Advection-Dominant Transport:** Solving the Peclet number trade-off in urban flow.")
+        st.write("• **Embolism Resistance:** Utilizing torus-margo valves for surge protection.")
+        st.write("• **Saturated Conductivity ($K_{sat}$):** Optimized for zero-overflow storm events.")
+        st.markdown('</div>', unsafe_allow_html=True)
+
+# --- TAB 2: BIOMIMETIC ARCHITECTURE ---
+with tabs[1]:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.header("Hardware: The Torus-Margo Solution")
+    
+    col_l, col_r = st.columns([1, 1])
+    with col_l:
+        st.write("""
+        The Vascura cartridge is inspired by the hierarchical structure of **Gymnosperm Xylem**. 
+        In nature, these vascular systems transport water under high tension while preventing catastrophic 
+        air embolisms (clogging). 
+        
+        Our biomimetic filter replicates the **Torus-Margo pit membrane**. The 'Margo' acts as a high-surface-area 
+        sieve, while the 'Torus' functions as a passive valve that regulates flow velocity. This allows 
+        the system to capture microplastics without the 'blinding' or surface-clogging typically seen in 
+        static mesh filters.
+        """)
+        
+        
+        
+        st.markdown("""
+        <div class="eng-card" style="margin-top:40px;">
+            <h3>Fabrication Fidelity</h3>
+            <span class="tech-pill">SLA Stereolithography</span>
+            <span class="tech-pill">20μm Resolution</span>
+            <p style="margin-top:15px; font-size: 0.95rem;">
+            Standard FDM (Filament) printing cannot replicate the intricate margo structures required for 
+            functional hydraulic regulation. We utilize high-resolution resin photopolymerization to 
+            recreate the exact geometry necessary for non-clogging microplastic interception.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col_r:
+        
+        st.caption("Conceptual Fluid Pathway Iteration")
+
+# --- TAB 3: COMPUTATIONAL CORE ---
+with tabs[2]:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.header("PIXGNN: The Physics-Informed Digital Twin")
+    
+    st.latex(r"\frac{\partial C}{\partial t} + \mathbf{u} \cdot \nabla C = D \nabla^2 C + S(x,t)")
+    st.caption("The Advection-Diffusion-Source (ADS) Equation governing contaminant transport.")
+
+    st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+    st.subheader("Dynamic Contaminant Plume Visualization")
+    st.write("Our Graph Neural Network treats the urban network as a vascular map to predict 'Super-Spreader' nodes.")
+    
+    intensity = st.slider("Simulated Hydraulic Load (Discharge Rate)", 5, 100, 30)
+    
+    x = np.linspace(0, 15, 400)
+    y = (intensity / 10) * np.exp(-(x - (intensity/15))**2 / (intensity/50))
+    
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(x=x, y=y, fill='tozeroy', line=dict(color='#00f2ff', width=3), name="Concentration mg/L"))
+    fig.update_layout(
+        template="plotly_dark",
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        xaxis_title="Network Distance (km)",
+        yaxis_title="Contaminant Density",
+        height=400
+    )
+    st.plotly_chart(fig, use_container_width=True)
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    
+
+# --- TAB 4: INDUSTRIAL SCALE ---
+with tabs[3]:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.header("Strategic Deployment & Circularity")
     
     c1, c2 = st.columns(2)
-    
     with c1:
-        st.markdown("""
-        <div class="eng-card">
-            <h2>Mohan Parthasarathy</h2>
-            <p style="color:#00e5ff; font-family:'JetBrains Mono';">SYSTEMS STRATEGY & APPLIED MATH</p>
-            <p>Specializing in Complex Analysis and Math Modeling. Mohan manages the mathematical coupling 
-            of the PDE systems and the municipal economic integration of the HydroNet ecosystem.</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+        st.subheader("Flash-Joule Upcycling")
+        st.write("""
+        VASCURA closes the resource loop. Captured microplastics are processed through **Flash Joule Heating (FJH)**, 
+        transforming mixed polymer waste into high-purity **Graphene**. 
+        
+        This graphene is then integrated into the manufacturing of our modular cartridges, increasing 
+        the structural integrity of the filter membranes while reducing reliance on virgin materials.
+        """)
+        st.markdown('</div>', unsafe_allow_html=True)
+        
+
+
+
 
     with c2:
-        st.markdown("""
-        <div class="eng-card">
-            <h2>Arjun Garg</h2>
-            <p style="color:#00ff9d; font-family:'JetBrains Mono';">CFD & BIOMIMETIC FABRICATION</p>
-            <p>Specializing in Biotechnology and Computational Fluid Dynamics. Arjun leads the 
-            SLA fabrication process and the hardware-software interfacing of the Digital Twin.</p>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+        st.subheader("Global Policy Alignment")
+        st.write("• **UN SDG 6.3:** Improvement of ambient water quality via decentralized interception.")
+        st.write("• **UN SDG 11.B:** Enhancing urban resilience against non-point source pollution.")
+        st.write("• **Modular Integration:** Designed for rapid retrofitting into municipal storm drains.")
+        st.markdown('</div>', unsafe_allow_html=True)
 
-    st.divider()
-    st.markdown("### OUR PARTNERS & ADVISORS")
-    st.caption("Proudly developing under the mentorship of the MIT THINK Program and the Conrad Challenge. Dedicated to solving SDG 6, 11, and 12.")
+# --- TAB 5: TECHNICAL PERSONNEL ---
+with tabs[4]:
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.header("Project Leadership")
+    
+    p1, p2 = st.columns(2)
+    with p1:
+        st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+        st.subheader("Mohan Parthasarathy")
+        st.markdown("<span class='tech-pill'>Systems & Applied Math</span>", unsafe_allow_html=True)
+        st.write("""
+        Specialized in Physics-Informed Neural Networks (PINNs) and Complex Analysis. 
+        Focuses on the computational coupling of the finite difference methods with 
+        urban graph neural network architectures.
+        """)
+        st.markdown('</div>', unsafe_allow_html=True)
 
-# --- FOOTER ---
-st.markdown("<br><br><center style='color:#444; font-size:0.8rem;'>VASCURA HYDRONET // OFFICIAL ARCHIVE // CLASSIFIED [PUBLIC] // 2026</center>", unsafe_allow_html=True)
+    with p2:
+        st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+        st.subheader("Arjun Garg")
+        st.markdown("<span class='tech-pill'>Biomimetics & Fabrication</span>", unsafe_allow_html=True)
+        st.write("""
+        Research background in Multi-Genome Alignment and Biotechnology. 
+        Leads the design of the biomimetic torus-margo cartridges and high-fidelity 
+        SLA manufacturing protocols.
+        """)
+        st.markdown('</div>', unsafe_allow_html=True)
+
+# --- GLOBAL FOOTER ---
+st.divider()
+st.markdown("""
+    <center style="opacity: 0.4; font-family: 'JetBrains Mono'; font-size: 0.75rem; letter-spacing: 0.2em;">
+        VASCURA SYSTEMS // DECENTRALIZED INFRASTRUCTURE ARCHIVE // EST. 2026
+    </center>
+    """, unsafe_allow_html=True)
