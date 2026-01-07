@@ -83,7 +83,7 @@ st.markdown("""
 st.markdown("""
     <div class="hero-container">
         <h1 class="hero-title">VASCURA</h1>
-        <p class="hero-subtitle">HydroNet Systems</p>
+        <p class="hero-subtitle">HydroNet</p>
         <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #94a3b8; font-family: 'Plus Jakarta Sans';">
             Pioneering a decentralized, bio-inspired filtration infrastructure. 
             By merging the physics of gymnosperm xylem with Graph Neural Intelligence, 
@@ -258,6 +258,6 @@ with tabs[4]:
 st.divider()
 st.markdown("""
     <center style="opacity: 0.4; font-family: 'JetBrains Mono'; font-size: 0.75rem; letter-spacing: 0.2em;">
-        VASCURA SYSTEMS // DECENTRALIZED INFRASTRUCTURE ARCHIVE // EST. 2026
+        VASCURA // DECENTRALIZED INFRASTRUCTURE ARCHIVE // EST. 2026
     </center>
     """, unsafe_allow_html=True)
