@@ -431,6 +431,6 @@ st.markdown("""
 <center style="opacity: 0.4; font-family: 'JetBrains Mono'; font-size: 0.75rem; letter-spacing: 0.2em;">
 VASCURA HYDRONET // EST. 2025 <br>
 Arjun Garg & Mohan Parthasarathy <br>
-Thomas Jefferson High School for Science and Technology, Alexandria, Virginia
+Student‑led research team based in Virginia, USA
 </center>
 """, unsafe_allow_html=True)
