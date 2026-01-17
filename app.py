@@ -26,7 +26,7 @@ st.markdown("""
 :root {
     --primary: #1f6fa5;      /* Logo blue (headers) */
     --secondary: #3fa97a;    /* Logo green (accent) */
-    --bg: #020408;           /* Logo background */
+    --bg: #ebeff2;           /* Logo background */
     --card: #0a1018;
     --accent: var(--secondary);
     --text: #020408;         /* Main content text */
