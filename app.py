@@ -63,12 +63,12 @@ st.markdown("""
 }
 /* Industrial Card Style */
 .eng-card {
-    background: var(--card);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: #f0f0f0;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 24px;
     padding: 40px;
     margin: 20px 0;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
 }
 
 .tech-pill {
@@ -89,11 +89,16 @@ st.markdown("""
 p, li {
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
-    color: var(--text);
+    color: #020408;
 }
-h1, h2, h3, h4 {
+h1, h2 {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--primary);
+    color: #1f6fa5; /* Headers */
+}
+
+h3, h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #3fa97a; /* Subheaders */
 }
 .stImage figcaption,
 .stCaption {
@@ -111,7 +116,7 @@ st.markdown("""
 
 <h1 class="hero-title">VASCURA</h1>
 <p class="hero-subtitle">HydroNet</p>
-<p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #94a3b8; font-family: 'Plus Jakarta Sans';">
+<p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #020408; font-family: 'Plus Jakarta Sans';">
 A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
 </p>
 </div>
