@@ -105,7 +105,7 @@ h3, h4 {
     color: var(--caption) !important;
 }
 
-.stExpander { background: var(--card); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; }
+.stExpander { background: #ffffff; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; }
 </style>
 """, unsafe_allow_html=True)
 
