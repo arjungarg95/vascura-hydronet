@@ -87,7 +87,7 @@ st.markdown("""
 <h1 class="hero-title">VASCURA</h1>
 <p class="hero-subtitle">HydroNet</p>
 <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #94a3b8; font-family: 'Plus Jakarta Sans';">
-Pioneering decentralized, bio-inspired filtration infrastructure to intercept microplastic contamination at the urban source by merging the physics of gymnosperm xylem with Graph Neural Intelligence.
+Pioneering decentralized, bio-inspired filtration infrastructure to turn urban microplastic contamination into valuable byproducts, merging the physics of gymnosperm xylem with graph neural intelligence.
 </p>
 </div>
 """, unsafe_allow_html=True)
@@ -101,7 +101,6 @@ tabs = st.tabs([
     "Progress",
     "Market",
     "Business",
-    "Fundraising",
     "Video",
     "References"
 ])
@@ -140,7 +139,7 @@ with tabs[1]:
         st.subheader("Mohan Parthasarathy")
         st.markdown("<span class='tech-pill'>Systems & Applied Math</span>", unsafe_allow_html=True)
         st.write("""
-        Specialized in Physics-Informed Neural Networks (PINNs) and Complex Analysis.
+        Specialized in Physics-Informed Neural Networks (PINNs) and Multivariable Calculus.
         Focuses on the computational coupling of the finite difference methods with
         urban graph neural network architectures.
         """)
@@ -236,8 +235,8 @@ with tabs[3]:
         \end{align*}
         """)
         st.caption("Coupled PDE system modeling fluid dynamics and pollution spread.")
-        st.image("pinn_photo1.jpg", caption="Physics-Informed Neural Network Visualization 1", use_column_width=True)
-        st.image("pinn_photo2.jpg", caption="Physics-Informed Neural Network Visualization 2", use_column_width=True)
+        # st.image("pinn_photo1.jpg", caption="Physics-Informed Neural Network Visualization 1", use_column_width=True)
+        st.image("pinn_photo2.jpg", caption="Physics-Informed Neural Network Visualization", use_column_width=True)
     with st.expander("Impact and Intellectual Property"):
         st.write("""
         Our impact metrics are both quantitative and qualitative. We measure success through Capture Efficiency and hydraulic conductivity. Our laboratory simulations target a capture efficiency of over eighty percent for particles larger than fifty micrometers, with less than a twenty percent reduction in flow rate. Beyond these basics, our core metrics now include kilograms of microplastics captured per year, the percentage conversion yield of waste to biochar and graphene, total reduction in pollutant load, operational uptime of filter units, and the growth of recurring subscription customers for data-driven monitoring. This tracking allows us to validate that we are removing tire wear particles containing 6PPD-quinone, directly restoring ecosystem health and protecting biodiversity [8].
@@ -371,25 +370,25 @@ with tabs[6]:
     st.table(rev_df)
 
 # --- TAB 8: FUNDRAISING ---
-with tabs[7]:
-    st.markdown("<br>", unsafe_allow_html=True)
-    st.header("Fundraising and Resources")
-    st.write("""
-    We are seeking five thousand dollars in pre-seed funding to bridge the gap between our current CAD models and a field-deployable unit. Our immediate budget allocates nine hundred and thirty-seven dollars for critical prototyping materials, including a Phrozen Sonic Mini 8K S printer ($350) for high-resolution fabrication, engineering-grade resin ($100), and a suite of turbidity and pressure sensors ($117). The remaining pre-seed funds will cover patent filing fees to protect our torus-margo geometry and legal costs for incorporation. To fully develop the product and execute a market rollout, we project a subsequent capital need of fifteen thousand dollars to fund initial injection molding tooling and a fifty-unit pilot production run. We are prioritizing non-dilutive funding sources like the MIT THINK Scholars Program to de-risk the technology before seeking angel investment. We are lean, student-led, and capital-efficient.
-    """)
-    st.subheader("Project Budget")
-    budget_data = {
-        "Item": ["Phrozen Sonic Mini 8K S (22μm Res)", "Aqua-Gray 8K Resin (1kg)", "Submersible Water Pump (Adjustable)", "Gravity: Analog Water Pressure Sensor", "Flow Rate Sensor (1 inch)", "Raspberry Pi 4 (Data Logging)", "Turbidity Sensor", "PVC Pipes, Caps, and Connectors", "Silicone O-Rings (Pack of 10)", "Fluorescent Microplastic Simulants"],
-        "Amount": [1, 2, 1, 2, 1, 1, 1, "Various", 1, "1 set"],
-        "Supplier": ["Phrozen 3D", "Phrozen 3D", "Amazon", "DFRobot", "Adafruit", "CanaKit", "DFRobot", "Home Depot", "Walmart", "Cospheric"],
-        "Cost ($)": [350.00, 100.00, 45.00, 32.00, 25.00, 55.00, 60.00, 80.00, 15.00, 175.00]
-    }
-    budg_df = pd.DataFrame(budget_data)
-    st.table(budg_df)
-    st.write("**Total: $937.00**")
+# with tabs[7]:
+#     st.markdown("<br>", unsafe_allow_html=True)
+#     st.header("Fundraising and Resources")
+#     st.write("""
+#     We are seeking five thousand dollars in pre-seed funding to bridge the gap between our current CAD models and a field-deployable unit. Our immediate budget allocates nine hundred and thirty-seven dollars for critical prototyping materials, including a Phrozen Sonic Mini 8K S printer ($350) for high-resolution fabrication, engineering-grade resin ($100), and a suite of turbidity and pressure sensors ($117). The remaining pre-seed funds will cover patent filing fees to protect our torus-margo geometry and legal costs for incorporation. To fully develop the product and execute a market rollout, we project a subsequent capital need of fifteen thousand dollars to fund initial injection molding tooling and a fifty-unit pilot production run. We are prioritizing non-dilutive funding sources like the MIT THINK Scholars Program to de-risk the technology before seeking angel investment. We are lean, student-led, and capital-efficient.
+#     """)
+#     st.subheader("Project Budget")
+#     budget_data = {
+#         "Item": ["Phrozen Sonic Mini 8K S (22μm Res)", "Aqua-Gray 8K Resin (1kg)", "Submersible Water Pump (Adjustable)", "Gravity: Analog Water Pressure Sensor", "Flow Rate Sensor (1 inch)", "Raspberry Pi 4 (Data Logging)", "Turbidity Sensor", "PVC Pipes, Caps, and Connectors", "Silicone O-Rings (Pack of 10)", "Fluorescent Microplastic Simulants"],
+#         "Amount": [1, 2, 1, 2, 1, 1, 1, "Various", 1, "1 set"],
+#         "Supplier": ["Phrozen 3D", "Phrozen 3D", "Amazon", "DFRobot", "Adafruit", "CanaKit", "DFRobot", "Home Depot", "Walmart", "Cospheric"],
+#         "Cost ($)": [350.00, 100.00, 45.00, 32.00, 25.00, 55.00, 60.00, 80.00, 15.00, 175.00]
+#     }
+#     budg_df = pd.DataFrame(budget_data)
+#     st.table(budg_df)
+#     st.write("**Total: $937.00**")
 
 # --- TAB 9: VIDEO ---
-with tabs[8]:
+with tabs[7]:
     st.markdown("<br>", unsafe_allow_html=True)
     st.header("Innovation Video")
     st.write("""
@@ -420,11 +419,11 @@ with tabs[9]:
     
     Scarselli, F., Gori, M., Tsoi, A. C., Hagenbuchner, M., and Monfardini, G. (2008). The graph neural network model. IEEE Transactions on Neural Networks, 20(1):61–80.
     """)
-    st.subheader("Additional Resources")
-    st.write("For more details, refer to our attached documents:")
-    st.write("• Vascura HydroNet Pitch.pdf")
-    st.write("• Vascura HydroNet Supplementals.pdf")
-    st.write("• Vascura HydroNet References.pdf")
+    # st.subheader("Additional Resources")
+    # st.write("For more details, refer to our attached documents:")
+    # st.write("• Vascura HydroNet Pitch.pdf")
+    # st.write("• Vascura HydroNet Supplementals.pdf")
+    # st.write("• Vascura HydroNet References.pdf")
 
 # --- GLOBAL FOOTER ---
 st.divider()
