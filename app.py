@@ -430,8 +430,8 @@ with tabs[9]:
 st.divider()
 st.markdown("""
 <center style="opacity: 0.4; font-family: 'JetBrains Mono'; font-size: 0.75rem; letter-spacing: 0.2em;">
-VASCURA SYSTEMS // DECENTRALIZED INFRASTRUCTURE ARCHIVE // EST. 2026 <br>
+VASCURA HYDRONET // EST. 2025 <br>
 Arjun Garg & Mohan Parthasarathy <br>
-Thomas Jefferson High School for Science and Technology, Herndon, Virginia
+Thomas Jefferson High School for Science and Technology, Alexandria, Virginia
 </center>
 """, unsafe_allow_html=True)
