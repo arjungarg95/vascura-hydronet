@@ -63,7 +63,7 @@ st.markdown("""
 }
 /* Industrial Card Style */
 .eng-card {
-    background: #f0f0f0;
+    background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 24px;
     padding: 40px;
@@ -277,7 +277,7 @@ with tabs[3]:
         x = np.linspace(0, 15, 400)
         y = (intensity / 10) * np.exp(-(x - (intensity/15))**2 / (intensity/50))
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=x, y=y, fill='tozeroy', line=dict(color='#00f2ff', width=3), name="Concentration mg/L"))
+        fig.add_trace(go.Scatter(x=x, y=y, fill='tozeroy', line=dict(color='#1f6fa5', width=3), name="Concentration mg/L"))
         fig.update_layout(
             template="plotly_dark",
             paper_bgcolor='rgba(0,0,0,0)',
