@@ -24,12 +24,13 @@ st.markdown("""
 #     --text: #cbd5e1;
 # }
 :root {
-    --primary: #1f6fa5;      /* Logo blue */
-    --secondary: #3fa97a;    /* Logo green */
-    --bg: #020408;
+    --primary: #1f6fa5;      /* Logo blue (headers) */
+    --secondary: #3fa97a;    /* Logo green (accent) */
+    --bg: #020408;           /* Logo background */
     --card: #0a1018;
-    --accent: #9fb7c9;
-    --text: #dbeafe;
+    --accent: var(--secondary);
+    --text: #020408;         /* Main content text */
+    --caption: #9fb7c9;      /* Image captions */
 }
 
 .stApp { background-color: var(--bg); color: var(--text); }
@@ -84,8 +85,20 @@ st.markdown("""
 .stTabs [data-baseweb="tab"] { font-size: 1rem; font-family: 'Plus Jakarta Sans'; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
 .stTabs [data-baseweb="tab--active"] { color: var(--primary) !important; }
 /* Additional Styles for Readability */
-p, li { font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.6; color: var(--accent); }
-h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: #fff; }
+p, li {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+}
+h1, h2, h3, h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--primary);
+}
+.stImage figcaption,
+.stCaption {
+    color: var(--caption) !important;
+}
+
 .stExpander { background: var(--card); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; }
 </style>
 """, unsafe_allow_html=True)
