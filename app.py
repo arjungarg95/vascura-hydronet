@@ -15,14 +15,23 @@ st.set_page_config(
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
+# :root {
+#     --primary: #00f2ff;
+#     --secondary: #00ff9d;
+#     --bg: #020408;
+#     --card: #0a1018;
+#     --accent: #94a3b8;
+#     --text: #cbd5e1;
+# }
 :root {
-    --primary: #00f2ff;
-    --secondary: #00ff9d;
+    --primary: #1f6fa5;      /* Logo blue */
+    --secondary: #3fa97a;    /* Logo green */
     --bg: #020408;
     --card: #0a1018;
-    --accent: #94a3b8;
-    --text: #cbd5e1;
+    --accent: #9fb7c9;
+    --text: #dbeafe;
 }
+
 .stApp { background-color: var(--bg); color: var(--text); }
 
 /* Center Stage Hero Branding */
@@ -84,10 +93,12 @@ h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; color: #fff; }
 # --- HERO SECTION ---
 st.markdown("""
 <div class="hero-container">
+<img src="vascura_logo.png" style="width:120px; margin-bottom:20px;" />
+
 <h1 class="hero-title">VASCURA</h1>
 <p class="hero-subtitle">HydroNet</p>
 <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #94a3b8; font-family: 'Plus Jakarta Sans';">
-Pioneering decentralized, bio-inspired filtration infrastructure to turn urban microplastic contamination into valuable byproducts, merging the physics of gymnosperm xylem with graph neural intelligence.
+A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
 </p>
 </div>
 """, unsafe_allow_html=True)
@@ -109,9 +120,41 @@ tabs = st.tabs([
 with tabs[0]:
     st.markdown("<br>", unsafe_allow_html=True)
     st.header("Overview")
+    st.subheader("Why Vascura?")
+    st.write("""
+    The name **Vascura** is derived from *vascular* and *cura*, the Latin word for care.
+    It reflects our core philosophy: treating urban water systems as living vascular networks
+    that require intelligent care rather than brute-force control.
+    
+    Just as biological vascular systems transport fluids efficiently while preventing failure,
+    Vascura is built to move stormwater safely while intercepting pollution before it spreads.
+    Our name captures this fusion of biology, infrastructure, and responsibility.
+    """)
+
     st.write("""
     Microplastic pollution has become one of the most pervasive and least mitigated forms of environmental contamination in modern urban environments. Urban stormwater systems, designed primarily for volume management, inadvertently act as conduits for these particles, allowing them to bypass infrastructure and accumulate in food webs. Current mitigation is reactive, relying on screens that rapidly clog or centralized treatments incompatible with decentralized runoff. To address this, we propose the Vascura HydroNet, a modular filtration system inspired by the hydraulic efficiency of gymnosperm xylem. Physically, the filter utilizes a biomimetic ``torus-margo'' pit membrane structure arranged in graded layers to capture particles down to the micrometer scale while maintaining hydraulic conductivity. Computationally, we couple this hardware with a Physics-Informed Xylem Graph Neural Network (PIXGNN) Digital Twin. We model the water network as a system of Partial Differential Equations (PDEs) to optimize filter placement. 
     """)
+
+    st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+    st.subheader("Mission, Vision, Values")
+    
+    st.write("""
+    **Mission**  
+    To stop microplastic pollution at the source by transforming passive stormwater
+    infrastructure into intelligent, bio-inspired filtration networks.
+    
+    **Vision**  
+    Cities where water infrastructure actively protects ecosystems instead of quietly
+    polluting them — monitored, optimized, and improved over time.
+    
+    **Values**  
+    • Learn from nature before engineering solutions  
+    • Design for real-world constraints, not idealized systems  
+    • Measure impact through data, not assumptions  
+    • Build infrastructure that lasts
+    """)
+    st.markdown('</div>', unsafe_allow_html=True)
+
     col1, col2 = st.columns(2)
     with col1:
         st.image("Vascura HydroNet Innovation Image.png", caption="HydroNet Prototype Rendering", use_column_width=True)
