@@ -400,7 +400,7 @@ with tabs[7]:
     """)
 
 # --- TAB 10: REFERENCES ---
-with tabs[9]:
+with tabs[8]:
     st.markdown("<br>", unsafe_allow_html=True)
     st.header("References and Attachments")
     st.subheader("Citations")
