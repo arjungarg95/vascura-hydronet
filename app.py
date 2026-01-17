@@ -63,7 +63,7 @@ st.markdown("""
 }
 /* Industrial Card Style */
 .eng-card {
-    background: #bfdeff;
+    background: #deebff;
     border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 24px;
     padding: 40px;
@@ -105,7 +105,7 @@ h3, h4 {
     color: var(--caption) !important;
 }
 
-.stExpander { background: #bfdeff; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; }
+.stExpander { background: #deebff; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; }
 </style>
 """, unsafe_allow_html=True)
 
