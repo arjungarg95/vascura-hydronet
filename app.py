@@ -110,7 +110,7 @@ with tabs[0]:
     st.markdown("<br>", unsafe_allow_html=True)
     st.header("Overview")
     st.write("""
-    Microplastic pollution has become one of the most pervasive and least mitigated forms of environmental contamination in modern urban environments. Urban stormwater systems, designed primarily for volume management, inadvertently act as conduits for these particles, allowing them to bypass infrastructure and accumulate in food webs. Current mitigation is reactive, relying on screens that rapidly clog or centralized treatments incompatible with decentralized runoff. To address this, we propose the Vascura HydroNet, a modular filtration system inspired by the hydraulic efficiency of gymnosperm xylem. Physically, the filter utilizes a biomimetic ``torus-margo'' pit membrane structure arranged in graded layers to capture particles down to the micrometer scale while maintaining hydraulic conductivity. Computationally, we couple this hardware with a Physics-Informed Xylem Graph Neural Network (PIXGNN) Digital Twin. We model the water network as a coupled system of Partial Differential Equations (PDEs)—specifically the advection-diffusion equation coupled with a spatially-extended Susceptible-Infected-Recovered (SIR) model and a Burgers Equation—to predict contamination spread and optimize filter placement. Our goal is to design, construct, and rigorously evaluate a prototype that demonstrates measurable capture through mass balance and self-regulating flow. With funding from the MIT THINK Scholars Program, we aim to integrate biological design principles with advanced computational fluid dynamics, bridging the gap between laboratory research and deployable urban solutions.
+    Microplastic pollution has become one of the most pervasive and least mitigated forms of environmental contamination in modern urban environments. Urban stormwater systems, designed primarily for volume management, inadvertently act as conduits for these particles, allowing them to bypass infrastructure and accumulate in food webs. Current mitigation is reactive, relying on screens that rapidly clog or centralized treatments incompatible with decentralized runoff. To address this, we propose the Vascura HydroNet, a modular filtration system inspired by the hydraulic efficiency of gymnosperm xylem. Physically, the filter utilizes a biomimetic ``torus-margo'' pit membrane structure arranged in graded layers to capture particles down to the micrometer scale while maintaining hydraulic conductivity. Computationally, we couple this hardware with a Physics-Informed Xylem Graph Neural Network (PIXGNN) Digital Twin. We model the water network as a system of Partial Differential Equations (PDEs)to optimize filter placement. 
     """)
     col1, col2 = st.columns(2)
     with col1:
@@ -127,7 +127,7 @@ with tabs[1]:
     Our partnership is built on the convergence of mathematics and biological systems. Mohan brings a deep passion for applied mathematics, having completed coursework up to Complex Analysis and serving as an officer in our school’s Math Modeling Club. His independent work on pedagogy and coupling for Physics-Informed Neural Networks (PINNs), which he will present at the Joint Mathematics Meetings in D.C. this upcoming week, forms the computational backbone of our digital twin. Arjun complements this with a strong foundation in biology, helping run our school’s Cardiology and Biotechnology clubs and having researched on multi-genome alignment and RNA sequencing at medical labs at Harvard and Johns Hopkins.
     """)
     st.write("""
-    Our journey began with a failure. Standing in our garage, we watched standard filtration meshes clog in seconds, realizing that current infrastructure forces a choice between flood safety and pollution control. This frustration deepened during conversations with mentors at the U.S. Department of Energy, who confirmed that this permeability-selectivity trade-off is a massive, unsolved blind spot in urban engineering [4]. HydroNet is our answer to that deadlock. Arjun Garg (CEO) leverages his background in computational genomics to reverse-engineer gymnosperm anatomy into manufacturable CAD designs. Mohan Parthasarathy (CTO) architects the digital brain, applying his research in mathematical modeling with Physics-Informed Neural Networks to simulate complex fluid dynamics. United by this vision, we combine the grit to build physical hardware with the high-level mathematics needed to optimize it, transforming a high school project into the engineering standard for sustainable cities.
+    Our journey began with a failure. Standing in our garage, we watched standard filtration meshes clog in seconds, realizing that current infrastructure forces a choice between flood safety and pollution control. This frustration deepened during conversations with mentors at the U.S. Department of Energy, who confirmed that this permeability-selectivity trade-off is a massive, unsolved blind spot in urban engineering. HydroNet is our answer to that deadlock. Arjun Garg (CEO) leverages his background in computational genomics to reverse-engineer gymnosperm anatomy into manufacturable CAD designs. Mohan Parthasarathy (CTO) architects the digital brain, applying his research in mathematical modeling with Physics-Informed Neural Networks to simulate complex fluid dynamics. United by this vision, we combine the grit to build physical hardware with the high-level mathematics needed to optimize it, transforming a high school project into the engineering standard for sustainable cities.
     """)
     st.subheader("Capabilities and Skills")
     st.write("""
@@ -154,14 +154,14 @@ with tabs[1]:
         SLA manufacturing protocols.
         """)
         st.markdown('</div>', unsafe_allow_html=True)
-    st.image("Vascura Team Picture.png", caption="Team from Thomas Jefferson High School for Science and Technology", use_column_width=True)
+    st.image("Vascura Team Picture.png", caption="The Vascura Team", use_column_width=True)
 
 # --- TAB 3: PROBLEM ---
 with tabs[2]:
     st.markdown("<br>", unsafe_allow_html=True)
     st.header("The Problem: Urban Microplastic Crisis")
     st.write("""
-    Urban runoff is the single largest source of microplastics entering oceans [5]. Every time it rains, tire wear particles and synthetic debris wash into storm drains. Municipalities face a critical operational failure because fine mesh screens clog and cause street flooding, while coarse screens let microplastics pass right through. Furthermore, cities lack data observability and cannot track the non-linear transport of contaminants through complex pipe networks.
+    Urban runoff is the single largest source of microplastics entering oceans. Every time it rains, tire wear particles and synthetic debris wash into storm drains. Municipalities face a critical operational failure because fine mesh screens clog and cause street flooding, while coarse screens let microplastics pass right through. Furthermore, cities lack data observability and cannot track the non-linear transport of contaminants through complex pipe networks.
     """)
     st.subheader("Real-World Insights")
     st.write("""
@@ -169,7 +169,7 @@ with tabs[2]:
     """)
     st.subheader("Market Gap")
     st.write("""
-    As environmental regulations tighten, cities are desperate for compliance tools, yet current options remain polarized between cheap drain guards that fail quickly and million-dollar hydrodynamic separators requiring major excavation [4]. HydroNet targets this gap in the $14 billion municipal stormwater market. By offering a modular retrofit that fits standard 2-inch piping, the system bypasses the need for expensive construction. By providing a digital twin, HydroNet offers compliance-as-a-service to help cities prove they are meeting reduction targets. This is not just an environmental cleanup tool but a risk-management asset for water utilities and general contractors needing to mitigate liability. HydroNet provides the only solution combining biological clog-resistance with the predictive power of AI to solve this operational nightmare.
+    As environmental regulations tighten, cities are desperate for compliance tools, yet current options remain polarized between cheap drain guards that fail quickly and million-dollar hydrodynamic separators requiring major excavation. HydroNet targets this gap in the $14 billion municipal stormwater market. By offering a modular retrofit that fits standard 2-inch piping, the system bypasses the need for expensive construction. By providing a digital twin, HydroNet offers compliance-as-a-service to help cities prove they are meeting reduction targets. HydroNet provides the only solution combining biological clog-resistance with the predictive power of AI to solve this operational nightmare.
     """)
     st.markdown('<div class="eng-card">', unsafe_allow_html=True)
     st.subheader("Key Pain Points")
@@ -184,7 +184,7 @@ with tabs[3]:
     st.header("Our Solution: Vascura HydroNet")
     st.subheader("Elevator Pitch")
     st.write("""
-    Vascura HydroNet is the world’s first bio-inspired, AI-optimized defense against the urban microplastic crisis [1]. While cities invest billions in stormwater infrastructure, microscopic tire particles and synthetic fibers bypass systems, turning drains into superhighways for pollution. Existing filters clog rapidly or restrict flow, forcing municipalities to choose between flooding and pollution. We resolve this with a dual-layer innovation. Physically, we engineered a modular cartridge inspired by gymnosperm xylem, using torus-margo membrane geometry that regulates flow and captures micrometer-scale particles without clogging [2]. Digitally, every unit is powered by a physics-informed digital twin that predicts contaminant spread and optimizes filter placement [3]. By converting storm drains into self-regulating networks, HydroNet offers municipalities a scalable, low-maintenance solution to meet environmental regulations. We tap into the $14 billion stormwater market with a circular economy model that transforms compliance costs into asset protection and upcycles captured waste into high-value byproducts like graphene and biochar.
+    Vascura HydroNet is a first-of-its-kind bio-inspired, AI-optimized defense against the urban microplastic crisis. While cities invest billions in stormwater infrastructure, microscopic tire particles and synthetic fibers bypass systems, turning drains into superhighways for pollution. Existing filters clog rapidly or restrict flow, forcing municipalities to choose between flooding and pollution. We resolve this with a dual-layer innovation. Physically, we engineered a modular cartridge inspired by gymnosperm xylem, using torus-margo membrane geometry that regulates flow and captures micrometer-scale particles without clogging. Digitally, every unit is powered by a physics-informed digital twin that predicts contaminant spread and optimizes filter placement. By converting storm drains into self-regulating networks, HydroNet offers municipalities a scalable, low-maintenance solution to meet environmental regulations. We tap into the $14 billion stormwater market with a circular economy model that transforms compliance costs into asset protection and upcycles captured waste into high-value byproducts like graphene and biochar.
     """)
     with st.expander("How It Works"):
         st.write("""
@@ -205,7 +205,7 @@ with tabs[3]:
         st.video("cad_rotation.mp4")
     with st.expander("Digital Software: PIXGNN Computational Core"):
         st.write("""
-        Digitally, every HydroNet unit is powered by a Physics-Informed Xylem Graph Neural Network, or PIXGNN [6]. Unlike standard black box AI which merely finds patterns in data, our model is explicitly constrained by the conservation laws of physics [3]. We model the urban pipe network as a graph where the transport of contaminants is governed by a system of five coupled partial differential equations. The flow velocity is governed by a modified Burgers equation which models how fluid moves through the pipe [7]. Crucially, we utilize the Boussinesq approximation to account for density changes, linking the physical presence of plastic particles back to the fluid dynamics via a gravity forcing term. This means our model understands that heavily polluted water moves differently than clean water. Furthermore, we have successfully adapted the Susceptible-Infected-Recovered disease model, used in epidemiology, to hydraulic networks. In our simulation, clean water is treated as Susceptible, pollution as the Infection, and filtered water as Recovered. Our model tracks the infection rate not just through direct contact, but through environmental exposure terms, allowing us to solve for hidden variables that cannot be physically measured. We use implicit finite difference approximations to simulate these non-linear dynamics, enabling the software to identify super-spreader nodes where pollution naturally concentrates. Additionally, we apply a xylem-based loss function to use features from plant vascular systems to better understand the city-wide spread of fluids. This allows a city to deploy HydroNet filters only at these critical junctions, reducing capital expenditure by forty to sixty percent compared to a blanket deployment.
+        Digitally, every HydroNet unit is powered by a Physics-Informed Xylem Graph Neural Network, or PIXGNN. Unlike standard black box AI which merely finds patterns in data, our model is explicitly constrained by the conservation laws of physics. We model the urban pipe network as a graph where the transport of contaminants is governed by a system of partial differential equations under fluid dynamics approximations. Simulations have shown that the software is able to effectively optimize filtration locations, reducing capital expenditure by forty to sixty percent compared to a blanket deployment.
         """)
         st.latex(r"\frac{\partial C}{\partial t} + \mathbf{u} \cdot \nabla C = D \nabla^2 C + S(x,t)")
         st.caption("The Advection-Diffusion-Source (ADS) Equation governing contaminant transport.")
@@ -225,16 +225,17 @@ with tabs[3]:
             height=400
         )
         st.plotly_chart(fig, use_container_width=True)
-        st.latex(r"""
-        \begin{align*}
-        \frac{\partial C}{\partial t} + U \frac{\partial C}{\partial x} &= \alpha \frac{\partial^2 C}{\partial x^2} - \delta C + D_1 I \\
-        \frac{\partial U}{\partial t} + U \frac{\partial U}{\partial x} &= \nu \frac{\partial^2 U}{\partial x^2} + g D_2 C \\
-        \frac{\partial S}{\partial t} + U \frac{\partial S}{\partial x} &= D_s \frac{\partial^2 S}{\partial x^2} - \beta_1 S I - \beta_2 S C \\
-        \frac{\partial I}{\partial t} + U \frac{\partial I}{\partial x} &= D_i \frac{\partial^2 I}{\partial x^2} + \beta_1 S I + \beta_2 S C - \gamma I \\
-        \frac{\partial R}{\partial t} + U \frac{\partial R}{\partial x} &= D_r \frac{\partial^2 R}{\partial x^2} + \gamma I
-        \end{align*}
-        """)
-        st.caption("Coupled PDE system modeling fluid dynamics and pollution spread.")
+        with st.expander("Mathematical Model"):
+            st.latex(r"""
+            \begin{align*}
+            \frac{\partial C}{\partial t} + U \frac{\partial C}{\partial x} &= \alpha \frac{\partial^2 C}{\partial x^2} - \delta C + D_1 I \\
+            \frac{\partial U}{\partial t} + U \frac{\partial U}{\partial x} &= \nu \frac{\partial^2 U}{\partial x^2} + g D_2 C \\
+            \frac{\partial S}{\partial t} + U \frac{\partial S}{\partial x} &= D_s \frac{\partial^2 S}{\partial x^2} - \beta_1 S I - \beta_2 S C \\
+            \frac{\partial I}{\partial t} + U \frac{\partial I}{\partial x} &= D_i \frac{\partial^2 I}{\partial x^2} + \beta_1 S I + \beta_2 S C - \gamma I \\
+            \frac{\partial R}{\partial t} + U \frac{\partial R}{\partial x} &= D_r \frac{\partial^2 R}{\partial x^2} + \gamma I
+            \end{align*}
+            """)
+            st.caption("Coupled PDE system modeling fluid dynamics and pollution spread.")
         # st.image("pinn_photo1.jpg", caption="Physics-Informed Neural Network Visualization 1", use_column_width=True)
         st.image("pinn_photo2.jpg", caption="Physics-Informed Neural Network Visualization", use_column_width=True)
     with st.expander("Impact and Intellectual Property"):
@@ -242,7 +243,7 @@ with tabs[3]:
         Our impact metrics are both quantitative and qualitative. We measure success through Capture Efficiency and hydraulic conductivity. Our laboratory simulations target a capture efficiency of over eighty percent for particles larger than fifty micrometers, with less than a twenty percent reduction in flow rate. Beyond these basics, our core metrics now include kilograms of microplastics captured per year, the percentage conversion yield of waste to biochar and graphene, total reduction in pollutant load, operational uptime of filter units, and the growth of recurring subscription customers for data-driven monitoring. This tracking allows us to validate that we are removing tire wear particles containing 6PPD-quinone, directly restoring ecosystem health and protecting biodiversity [8].
         """)
         st.write("""
-        To protect our commercial advantage, we are pursuing a dual-track intellectual property strategy. We intend to file a utility patent for the mechanical variable-geometry of the artificial torus-margo cartridge, as this is a novel hardware invention. Simultaneously, the weighting, architecture, and xylem-inspired loss functions of the neural network, specifically the coupling of the SIR disease model with fluid dynamics, will be retained as a proprietary trade secret, preventing competitors from reverse-engineering our optimization logic.
+        To protect our commercial advantage, we are pursuing a dual-track intellectual property strategy. We intend to file a utility patent for the mechanical variable-geometry of the artificial torus-margo cartridge, as this is a novel hardware invention. Simultaneously, the weighting, architecture, and xylem-inspired loss functions of the neural network, specifically the architecture and loss functions of the model, will be retained as a proprietary trade secret, preventing competitors from reverse-engineering our optimization logic.
         """)
     with st.expander("Strategic Deployment & Circularity"):
         st.write("""
@@ -265,36 +266,12 @@ with tabs[4]:
     """)
     st.subheader("Computational Validation")
     st.write("""
-    On the computational front, we have written and validated a MATLAB prototype for our neural network. To ensure the mathematical rigor of our model before training, we utilized the Method of Manufactured Solutions (MMS). By constructing a known analytical solution and forcing it through our coupled PDE system, we verified that our custom finite-difference solvers converge with the correct order of accuracy. This rigorous verification step guarantees that our Digital Twin is trained on valid physical laws, not numerical artifacts [3]. To ground this model in reality, we engaged with the Fairfax County Department of Public Works and Environmental Services. During a video conference, we walked their stormwater management team through our MATLAB code and MMS validation results. They provided critical feedback on real-world pipe connectivity that led us to incorporate a specialized xylem-based loss function into our algorithm. While the department does not specialize in contaminants, their feedback validated our computational design and confirmed a drastic market need for new products capable of handling modern drainage challenges. Our immediate next step is a laboratory demonstration using water spiked with fluorescent microplastic simulants between ten and five hundred micrometers to generate mass balance data and prove our capture efficiency targets.
+    On the computational front, we have written and validated a MATLAB prototype for our neural network. To ensure the mathematical rigor of our model before training, we utilized the Method of Manufactured Solutions (MMS). By constructing a known analytical solution and forcing it through our coupled PDE system, we verified that our custom finite-difference solvers converge with the correct order of accuracy. This rigorous verification step guarantees that our Digital Twin is trained on valid physical laws, not numerical artifacts. To ground this model in reality, we engaged with the Fairfax County Department of Public Works and Environmental Services. During a video conference, we walked their stormwater management team through our MATLAB code and MMS validation results. They provided critical feedback on real-world pipe connectivity that led us to incorporate a specialized xylem-based loss function into our algorithm. While the department does not specialize in contaminants, their feedback validated our computational design and confirmed a drastic market need for new products capable of handling modern drainage challenges. Our immediate next step is a laboratory demonstration using water spiked with fluorescent microplastic simulants between ten and five hundred micrometers to generate mass balance data and prove our capture efficiency targets.
     """)
     st.subheader("Current Progress")
     st.write("""
-    We have currently constructed a CAD as well as a small-scale testing rig using PVC pipes and generic mesh screens. However, these meshes clogged almost immediately, confirming the need for our specialized vascular geometry. We have also written a preliminary MATLAB script for a PIGNN for some basic system of water infrastructure, but it relies on arbitrary synthetic data and lacks rigorous physics constraints, resulting in extremely slow training times.
+    We have currently constructed a CAD as well as a small-scale testing rig using PVC pipes and generic mesh screens. However, these meshes clogged almost immediately, confirming the need for our specialized vascular geometry. We have also written a preliminary MATLAB script for a PIGNN for some basic system of water infrastructure.
     """)
-    with st.expander("Risks and Mitigations"):
-        st.write("""
-        1. Risk: Resin Durability. 3D printed resin may be brittle under hydraulic stress. Mitigation: We will use “Tough/Engineering” resin blends and reinforce the internal structure with a honeycomb lattice.
-        2. Risk: Model Non-Convergence. The coupled non-linear PDEs may be unstable during training. Mitigation: We will implement a curriculum learning approach, starting with a simplified diffusion-only model before introducing advection and Boussinesq terms.
-        3. Risk: Clogging. Even bio-inspired filters eventually clog. Mitigation: The module is designed for easy removal. We will also investigate a back-flush port design that allows reversed flow to clear debris without disassembly.
-        4. Risk: Fabrication Resolution. Micrometer-scale xylem features may exceed the SLA printer’s limits. Mitigation: We will simplify the “torus-margo” geometry into a functionally equivalent porous lattice if the complex biomimetic features fail to print correctly.
-        """)
-    with st.expander("Timeline"):
-        st.write("""
-        1. Feb 15: Finalize CAD & Acquisition. Finalize the CAD for the vascular filter and order the SLA printer and sensors. Deliverable: Finalized .stl files and component order receipts.
-        2. Mar 1: Computational Optimization. Complete the PIXGNN code optimization using the new loss function. Run simulations on synthetic datasets to ensure stability. Deliverable: Convergence plots of the loss function (LPDE ) and successful identification of super-spreader nodes in the synthetic graph.
-        3. Mar 15: Fabrication and Assembly. Print Version 1 of the torus-margo filter core using the SLA printer and assemble the physical flow loop with PVC housing. Deliverable: Photographic documentation of the printed micro-structures and the assembled testing rig.
-        4. Apr 1: Hydraulic Testing (Clean Water). Conduct initial flow tests with clean water to establish baseline pressure/flow curves. Deliverable: Graphs plotting Flow Rate (Q) vs. Pressure Drop (∆P) to validate the Hagen-Poiseuille optimization.
-        5. Apr 20: Contaminant Testing. Perform full testing with fluorescent microplastic simulants (10 − 500μm). Log data for digital twin validation. Deliverable: Mass balance data showing Capture Efficiency (Ec) across different particle sizes over 24-hour cycles.
-        6. May 10: Data Analysis and Twin Validation. Compare experimental Ec and ∆P results against the PIXGNN predictions. Deliverable: A comparative error analysis report quantifying the accuracy of the Digital Twin.
-        7. May 26: Buffer and Refinement. Reserved time for re-printing filter iterations or fine-tuning the model hyperparameters if initial results are suboptimal.
-        8. June: Final Submission. Complete the final report and prepare the prototype for demonstration. Deliverable: Final Project Report and GitHub repository upload of the PIXGNN code.
-        """)
-    with st.expander("Goals"):
-        st.write("""
-        • Milestone 1 (Computational): A functioning PIXGNN that converges 10x faster than our current baseline and correctly identifies optimal filter nodes in a synthetic city graph.
-        • Milestone 2 (Physical): Successful fabrication of a xylem-inspired filter cartridge that fits standard 2-inch PVC piping.
-        • Milestone 3 (Experimental): Laboratory demonstration of > 80% microplastic capture efficiency for particles > 50μm with less than a 20% reduction in flow rate over continuous operation.
-        """)
 
 # --- TAB 6: MARKET ---
 with tabs[5]:
@@ -320,7 +297,7 @@ with tabs[5]:
     st.table(df)
     with st.expander("Competition"):
         st.write("""
-        The competitive landscape is polarized between low-end drain guards and high-end hydrodynamic separators, leaving a critical gap in the middle market. At the low end, passive geotextile inserts suffer from a binary failure mode: either large pores let microplastics pass, or fine pores clog instantly, causing street flooding [4]. Their need for frequent manual cleaning creates hidden labor costs exceeding the initial purchase price. At the high end, hydrodynamic separators are effective but prohibitively expensive, costing tens of thousands of dollars and requiring major excavation. They work for new construction but are unscalable for retrofitting millions of existing storm drains.
+        The competitive landscape is polarized between low-end drain guards and high-end hydrodynamic separators, leaving a critical gap in the middle market. At the low end, passive geotextile inserts suffer from a binary failure mode: either large pores let microplastics pass, or fine pores clog instantly, causing street flooding. Their need for frequent manual cleaning creates hidden labor costs exceeding the initial purchase price. At the high end, hydrodynamic separators are effective but prohibitively expensive, costing tens of thousands of dollars and requiring major excavation. They work for new construction but are unscalable for retrofitting millions of existing storm drains.
         """)
         st.write("""
         HydroNet disrupts this middle market by combining the low footprint of a drain guard with the high performance of a separator. Our positioning is "smart retrofitting." We compete on operational expenditure reduction rather than just hardware price. Our primary advantages are the patentable torus-margo geometry and the proprietary PIXGNN model. No other competitor uses variable-geometry filtration, enabling us to capture smaller particles without the flood risk of static meshes. Furthermore, existing solutions lack data observability; they are "dumb" hardware requiring manual checks. In contrast, our digital twin provides the missing data layer, telling operators exactly when to clean filters and saving thousands in labor hours.
@@ -390,7 +367,7 @@ with tabs[6]:
 # --- TAB 9: VIDEO ---
 with tabs[7]:
     st.markdown("<br>", unsafe_allow_html=True)
-    st.header("Innovation Video")
+    st.header("Pitch Video")
     st.write("""
     Watch our 5-minute pitch video demonstrating the HydroNet innovation, including prototypes, models, and how it works.
     """)
