@@ -1,3 +1,4 @@
+
 import streamlit as st
 import plotly.graph_objects as go
 import numpy as np
@@ -11,36 +12,35 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-st.markdown(
-    """
+# --- VASCURA DESIGN LANGUAGE (Custom CSS) ---
+st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
-
+# :root {
+#     --primary: #00f2ff;
+#     --secondary: #00ff9d;
+#     --bg: #020408;
+#     --card: #0a1018;
+#     --accent: #94a3b8;
+#     --text: #cbd5e1;
+# }
 :root {
-    --primary:   #40c4ff;     /* bright cyan-blue   */
-    --secondary: #00e676;     /* vivid green        */
-    --bg:        #0a0e14;     /* very dark blue-gray*/
-    --card:      #111927;     /* slightly lighter   */
-    --accent:    #94a3b8;     /* cool gray          */
-    --text:      #e2e8f0;     /* light slate        */
-    --caption:   #94a3b8;     /* muted for captions */
-    --border:    rgba(64, 196, 255, 0.18);
+    --primary: #1f6fa5;      /* Logo blue (headers) */
+    --secondary: #3fa97a;    /* Logo green (accent) */
+    --bg: #ebeff2;           /* Logo background */
+    --card: #0a1018;
+    --accent: var(--secondary);
+    --text: #020408;         /* Main content text */
+    --caption: #9fb7c9;      /* Image captions */
 }
 
-html, body, [data-testid="stAppViewContainer"] {
-    background-color: var(--bg) !important;
-}
-
-.stApp { 
-    background-color: var(--bg); 
-    color: var(--text); 
-}
+.stApp { background-color: var(--bg); color: var(--text); }
 
 /* Center Stage Hero Branding */
 .hero-container {
     text-align: center;
     padding: 80px 20px;
-    background: radial-gradient(circle at center, rgba(64, 196, 255, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle at center, rgba(0, 242, 255, 0.08) 0%, transparent 70%);
 }
 .hero-title {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -48,7 +48,7 @@ html, body, [data-testid="stAppViewContainer"] {
     font-weight: 800 !important;
     letter-spacing: -0.05em !important;
     margin-bottom: 0px !important;
-    background: linear-gradient(to bottom, #e0f7ff 30%, var(--primary));
+    background: linear-gradient(to bottom, #fff 40%, #64748b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -56,119 +56,73 @@ html, body, [data-testid="stAppViewContainer"] {
     font-size: 1rem;
     letter-spacing: 0.6em;
     text-transform: uppercase;
-    color: var(--secondary);
+    color: var(--primary);
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 400;
     margin-top: -10px;
 }
-
-/* Industrial Card Style – dark mode */
+/* Industrial Card Style */
 .eng-card {
-    background: var(--card);
-    border: 1px solid var(--border);
+    background: #deebff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
     border-radius: 24px;
     padding: 40px;
     margin: 20px 0;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08);
 }
 
 .tech-pill {
-    background: rgba(0, 230, 118, 0.14);
-    color: var(--secondary);
+    background: rgba(0, 242, 255, 0.1);
+    color: var(--primary);
     padding: 6px 14px;
     border-radius: 8px;
     font-family: 'JetBrains Mono';
     font-size: 0.8rem;
-    border: 1px solid rgba(0, 230, 118, 0.25);
+    border: 1px solid rgba(0, 242, 255, 0.2);
     margin-right: 10px;
 }
-
 /* Tab Customization */
-.stTabs [data-baseweb="tab-list"] { 
-    gap: 40px; 
-    justify-content: center; 
-    border-bottom: 1px solid rgba(148, 163, 184, 0.15); 
-}
-.stTabs [data-baseweb="tab"] { 
-    font-size: 1rem; 
-    font-family: 'Plus Jakarta Sans'; 
-    color: #94a3b8; 
-    font-weight: 600; 
-    text-transform: uppercase; 
-    letter-spacing: 0.1em; 
-}
-.stTabs [data-baseweb="tab--active"] { 
-    color: var(--primary) !important; 
-    border-bottom: 3px solid var(--primary) !important;
-}
-
-/* General typography */
-p, li, .stMarkdown {
+.stTabs [data-baseweb="tab-list"] { gap: 40px; justify-content: center; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.stTabs [data-baseweb="tab"] { font-size: 1rem; font-family: 'Plus Jakarta Sans'; color: #64748b; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; }
+.stTabs [data-baseweb="tab--active"] { color: var(--primary) !important; }
+/* Additional Styles for Readability */
+p, li {
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
-    color: var(--text) !important;
+    color: #020408;
 }
-
 h1, h2 {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--primary);
+    color: #1f6fa5; /* Headers */
 }
 
 h3, h4 {
     font-family: 'Plus Jakarta Sans', sans-serif;
-    color: var(--secondary);
+    color: #3fa97a; /* Subheaders */
 }
-
 .stImage figcaption,
 .stCaption {
     color: var(--caption) !important;
-    font-size: 0.9rem;
 }
 
-.stExpander {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    color: var(--text);
-}
-
-.stExpander summary {
-    color: var(--primary);
-}
-
-/* Improve contrast in plotly (already dark) */
-.js-plotly-plot .plotly .bg {
-    fill: transparent !important;
-}
+.stExpander { background: #deebff; border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 12px; }
 </style>
-""",
-    unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
-# --- HERO SECTION (fixed rendering) ---
-st.markdown(
-    """
+# --- HERO SECTION ---
+st.markdown("""
 <div class="hero-container">
-    <img 
-        src="vascura_logo.png" 
-        onerror="this.src='https://via.placeholder.com/140/40c4ff/0a0e14?text=Vascura';this.style.background='transparent';"
-        style="width:140px; height:auto; margin-bottom:24px; filter: drop-shadow(0 4px 12px rgba(64,196,255,0.35));"
-        alt="Vascura Logo"
-    />
+<img src="vascura_logo.png" style="width:120px; margin-bottom:20px;" />
 
-    <h1 class="hero-title">VASCURA</h1>
-    <p class="hero-subtitle">HydroNet</p>
-    <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: var(--text); font-family: 'Plus Jakarta Sans';">
-    A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
-    </p>
+<h1 class="hero-title">VASCURA</h1>
+<p class="hero-subtitle">HydroNet</p>
+<p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #020408; font-family: 'Plus Jakarta Sans';">
+A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
+</p>
 </div>
-""",
-    unsafe_allow_html=True
-)
+""", unsafe_allow_html=True)
 
-# Rest of your code remains **exactly the same** from here onward
-# (tabs, content, images, plotly, video, etc.)
-
+# --- CONSOLIDATED NAVIGATION TABS ---
 tabs = st.tabs([
     "Home",
     "Team",
@@ -509,7 +463,7 @@ with tabs[8]:
 # --- GLOBAL FOOTER ---
 st.divider()
 st.markdown("""
-<center style="opacity: 0.5; font-family: 'JetBrains Mono'; font-size: 0.8rem; letter-spacing: 0.15em; color: #94a3b8;">
+<center style="opacity: 0.4; font-family: 'JetBrains Mono'; font-size: 0.75rem; letter-spacing: 0.2em;">
 VASCURA HYDRONET // EST. 2025 <br>
 Arjun Garg & Mohan Parthasarathy <br>
 Student‑led research team based in Virginia, USA
