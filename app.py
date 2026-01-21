@@ -11,8 +11,8 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
-# --- VASCURA DESIGN LANGUAGE (DARK MODE) ---
-st.markdown("""
+st.markdown(
+    """
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -141,10 +141,13 @@ h3, h4 {
     fill: transparent !important;
 }
 </style>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 # --- HERO SECTION (fixed rendering) ---
-st.markdown("""
+st.markdown(
+    """
 <div class="hero-container">
     <img 
         src="vascura_logo.png" 
@@ -159,7 +162,9 @@ st.markdown("""
     A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
     </p>
 </div>
-""", unsafe_allow_html=True)
+""",
+    unsafe_allow_html=True
+)
 
 # Rest of your code remains **exactly the same** from here onward
 # (tabs, content, images, plotly, video, etc.)
