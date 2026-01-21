@@ -143,16 +143,16 @@ h3, h4 {
 </style>
 """, unsafe_allow_html=True)
 
-# --- HERO SECTION (fixed logo visibility) ---
+# --- HERO SECTION (with proper unsafe_allow_html=True) ---
 st.markdown("""
 <div class="hero-container">
     <img 
         src="vascura_logo.png" 
-        onerror="this.src='https://via.placeholder.com/120/40c4ff/0a0e14?text=Vascura+Logo'; this.style.background='transparent';"
-        style="width:140px; height:auto; margin-bottom:24px; filter: drop-shadow(0 4px 12px rgba(64,196,255,0.4));"
+        onerror="this.src='https://via.placeholder.com/140/40c4ff/0a0e14?text=Vascura';"
+        style="width:140px; height:auto; margin-bottom:24px; filter: drop-shadow(0 4px 12px rgba(64,196,255,0.35));"
         alt="Vascura Logo"
     />
-
+    
     <h1 class="hero-title">VASCURA</h1>
     <p class="hero-subtitle">HydroNet</p>
     <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: var(--text); font-family: 'Plus Jakarta Sans';">
