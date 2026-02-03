@@ -67,21 +67,21 @@ st.markdown("""
 # }
 /* ... keep your other CSS ... */
 
-# .hero-title {
-#     font-family: 'Plus Jakarta Sans', sans-serif !important;
-#     font-size: 7rem !important;
-#     font-weight: 800 !important;
-#     letter-spacing: -0.03em !important;
-#     margin-bottom: 0px !important;
+.hero-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 7rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    margin-bottom: 0px !important;
     
-#     background: linear-gradient(180deg, #1f6fa5 10%, #0a1018 100%);
+    background: linear-gradient(180deg, #1f6fa5 10%, #0a1018 100%);
     
-#     -webkit-background-clip: text;
-#     -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     
-#     /* Optional: Adds a subtle shadow to lift it off the page */
-#     filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
-# }
+    /* Optional: Adds a subtle shadow to lift it off the page */
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
+}
 
 .hero-subtitle {
     font-size: 1rem;
