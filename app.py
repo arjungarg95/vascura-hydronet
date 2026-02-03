@@ -16,7 +16,7 @@ def get_img_as_base64(file_path):
 
 # Load the logo (Make sure 'vascura_logo.png' is in the same folder!)
 # img_base64 = get_img_as_base64("vascura_logo.png")
-img_base64 = get_img_as_base64("Untitled design.png")
+img_base64 = get_img_as_base64("Untitled_design-removebg-preview.png")
 
 
 # --- SYSTEM CONFIGURATION ---
