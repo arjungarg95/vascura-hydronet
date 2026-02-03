@@ -204,7 +204,7 @@ with tabs[0]:
     Microplastic pollution has become one of the most pervasive and least mitigated forms of environmental contamination in modern urban environments. Urban stormwater systems, designed primarily for volume management, inadvertently act as conduits for these particles, allowing them to bypass infrastructure and accumulate in food webs. Current mitigation is reactive, relying on screens that rapidly clog or centralized treatments incompatible with decentralized runoff. To address this, we propose the Vascura HydroNet, a modular filtration system inspired by the hydraulic efficiency of gymnosperm xylem. Physically, the filter utilizes a biomimetic ``torus-margo'' pit membrane structure arranged in graded layers to capture particles down to the micrometer scale while maintaining hydraulic conductivity. Computationally, we couple this hardware with a Physics-Informed Xylem Graph Neural Network (PIXGNN) Digital Twin. We model the water network as a system of Partial Differential Equations (PDEs) to optimize filter placement. 
     """)
 
-    st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+    # st.markdown('<div class="eng-card">', unsafe_allow_html=True)
     st.subheader("Our Business Philosophy")
     
     st.write("""
@@ -247,7 +247,7 @@ with tabs[1]:
     """)
     col1, col2 = st.columns(2)
     with col1:
-        st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+        # st.markdown('<div class="eng-card">', unsafe_allow_html=True)
         st.subheader("Mohan Parthasarathy")
         st.markdown("<span class='tech-pill'>Systems & Applied Math</span>", unsafe_allow_html=True)
         st.write("""
@@ -257,7 +257,7 @@ with tabs[1]:
         """)
         st.markdown('</div>', unsafe_allow_html=True)
     with col2:
-        st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+        # st.markdown('<div class="eng-card">', unsafe_allow_html=True)
         st.subheader("Arjun Garg")
         st.markdown("<span class='tech-pill'>Biomimetics & Fabrication</span>", unsafe_allow_html=True)
         st.write("""
@@ -283,7 +283,7 @@ with tabs[2]:
     st.write("""
     As environmental regulations tighten, cities are desperate for compliance tools, yet current options remain polarized between cheap drain guards that fail quickly and million-dollar hydrodynamic separators requiring major excavation. HydroNet targets this gap in the $14 billion municipal stormwater market. By offering a modular retrofit that fits standard 2-inch piping, the system bypasses the need for expensive construction. By providing a digital twin, HydroNet offers compliance-as-a-service to help cities prove they are meeting reduction targets. HydroNet provides the only solution combining biological clog-resistance with the predictive power of AI to solve this operational nightmare.
     """)
-    st.markdown('<div class="eng-card">', unsafe_allow_html=True)
+    # st.markdown('<div class="eng-card">', unsafe_allow_html=True)
     st.subheader("Key Pain Points")
     st.write("• Rapid clogging of existing filters leading to flooding.")
     st.write("• Lack of data for contaminant tracking.")
