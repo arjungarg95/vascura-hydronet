@@ -222,7 +222,7 @@ with tabs[0]:
     • Measure impact through data, not assumptions  
     • Build infrastructure that lasts
     """)
-    st.markdown('</div>', unsafe_allow_html=True)
+    # st.markdown('</div>', unsafe_allow_html=True)
 
     col1, col2 = st.columns(2)
     with col1:
@@ -255,7 +255,7 @@ with tabs[1]:
         Focuses on the computational coupling of the finite difference methods with
         urban graph neural network architectures.
         """)
-        st.markdown('</div>', unsafe_allow_html=True)
+        # st.markdown('</div>', unsafe_allow_html=True)
     with col2:
         # st.markdown('<div class="eng-card">', unsafe_allow_html=True)
         st.subheader("Arjun Garg")
@@ -265,7 +265,7 @@ with tabs[1]:
         Leads the design of the biomimetic torus-margo cartridges and high-fidelity
         SLA manufacturing protocols.
         """)
-        st.markdown('</div>', unsafe_allow_html=True)
+        # st.markdown('</div>', unsafe_allow_html=True)
     st.image("Vascura Team Picture.png", caption="The Vascura Team", use_column_width=True)
 
 # --- TAB 3: PROBLEM ---
@@ -288,7 +288,7 @@ with tabs[2]:
     st.write("• Rapid clogging of existing filters leading to flooding.")
     st.write("• Lack of data for contaminant tracking.")
     st.write("• High costs for large-scale solutions.")
-    st.markdown('</div>', unsafe_allow_html=True)
+    # st.markdown('</div>', unsafe_allow_html=True)
 
 # --- TAB 4: SOLUTION ---
 with tabs[3]:
