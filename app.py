@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import base64
 import os
+from PIL import Image
 
 def get_img_as_base64(file_path):
     """Reads an image file and converts it to a base64 string."""
@@ -18,11 +19,15 @@ def get_img_as_base64(file_path):
 # img_base64 = get_img_as_base64("vascura_logo.png")
 img_base64 = get_img_as_base64("Untitled_design-removebg-preview.png")
 
-
+try:
+    favicon = Image.open("Untitled_design-removebg-preview.png")
+except FileNotFoundError:
+    favicon = "💠" # Fallback emoji if file is missing
+    
 # --- SYSTEM CONFIGURATION ---
 st.set_page_config(
     page_title="Vascura HydroNet",
-    page_icon="Untitled_design-removebg-preview.png",
+    page_icon=favicon,
     layout="wide",
     initial_sidebar_state="collapsed",
 )
