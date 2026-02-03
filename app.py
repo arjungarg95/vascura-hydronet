@@ -317,7 +317,7 @@ with tabs[3]:
         st.video("cad_rotation.mp4")
     with st.expander("Digital Software: PIXGNN Computational Core"):
         st.write("""
-        Digitally, every HydroNet unit is powered by a Physics-Informed Xylem Graph Neural Network, or PIXGNN. Unlike standard black box AI which merely finds patterns in data, our model is explicitly constrained by the conservation laws of physics. We model the urban pipe network as a graph where the transport of contaminants is governed by a system of partial differential equations under fluid dynamics approximations. Simulations have shown that the software is able to effectively optimize filtration locations, reducing capital expenditure by forty to sixty percent compared to a blanket deployment.
+        Digitally, every HydroNet unit is powered by a Physics-Informed Xylem Graph Neural Network, or PIXGNN. Unlike standard black box AI which just looks for patterns from given data, our model is explicitly constrained by the conservation laws of physics. We model the urban pipe network as a graph where the transport of contaminants is governed by a system of partial differential equations under fluid dynamics approximations. This creates a proprietary coupled system built upon the Boussinesq Approximation. Simulations have shown that the software is able to effectively optimize filtration locations, reducing capital expenditure by forty to sixty percent compared to a blanket deployment.
         """)
         st.latex(r"\frac{\partial C}{\partial t} + \mathbf{u} \cdot \nabla C = D \nabla^2 C + S(x,t)")
         st.caption("The Advection-Diffusion-Source (ADS) Equation governing contaminant transport.")
@@ -340,11 +340,12 @@ with tabs[3]:
         with st.expander("Mathematical Model"):
             st.latex(r"""
             \begin{align*}
-            \frac{\partial C}{\partial t} + U \frac{\partial C}{\partial x} &= \alpha \frac{\partial^2 C}{\partial x^2} - \delta C + D_1 I \\
-            \frac{\partial U}{\partial t} + U \frac{\partial U}{\partial x} &= \nu \frac{\partial^2 U}{\partial x^2} + g D_2 C \\
-            \frac{\partial S}{\partial t} + U \frac{\partial S}{\partial x} &= D_s \frac{\partial^2 S}{\partial x^2} - \beta_1 S I - \beta_2 S C \\
-            \frac{\partial I}{\partial t} + U \frac{\partial I}{\partial x} &= D_i \frac{\partial^2 I}{\partial x^2} + \beta_1 S I + \beta_2 S C - \gamma I \\
-            \frac{\partial R}{\partial t} + U \frac{\partial R}{\partial x} &= D_r \frac{\partial^2 R}{\partial x^2} + \gamma I
+            \frac{\partial \mathbf{u}}{\partial t} + (\mathbf{u} \cdot \nabla)\mathbf{u} &= \nu(C)\nabla^2 \mathbf{u} + gD_1 C \\
+            \nu(C) &= \nu_{\text{base}} + k_{\nu}C \\
+            \frac{\partial C}{\partial t} + \nabla \cdot (\mathbf{u}C) &= \nabla \cdot (\alpha(x, y)\nabla C) + D_2 I - \delta C \\
+            \frac{\partial S}{\partial t} &= \Lambda + D_S \nabla^2 S - \beta_1 SI - (1 - u)\beta_2 SC - nS \\
+            \frac{\partial I}{\partial t} &= D_I \nabla^2 I + \beta_1 SI + (1 - u)\beta_2 SC - \gamma I - nI \\
+            \frac{\partial R}{\partial t} &= D_R \nabla^2 R + \gamma I - nR
             \end{align*}
             """)
             st.caption("Coupled PDE system modeling fluid dynamics and pollution spread.")
@@ -359,8 +360,8 @@ with tabs[3]:
         """)
     with st.expander("Strategic Deployment & Circularity"):
         st.write("""
-        VASCURA closes the resource loop. Captured microplastics are processed through **Flash Joule Heating (FJH)**,
-        transforming mixed polymer waste into high-purity **Graphene**.
+        Vascura closes the resource loop. Captured microplastics are processed through Flash Joule Heating (FJH),
+        transforming mixed polymer waste into high-purity Graphene.
         
         This graphene is then integrated into the manufacturing of our modular cartridges, increasing
         the structural integrity of the filter membranes while reducing reliance on virgin materials.
