@@ -3,6 +3,19 @@ import streamlit as st
 import plotly.graph_objects as go
 import numpy as np
 import pandas as pd
+import base64
+import os
+
+def get_img_as_base64(file_path):
+    """Reads an image file and converts it to a base64 string."""
+    if not os.path.exists(file_path):
+        return "" # Prevent errors if file is missing
+    with open(file_path, "rb") as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+# Load the logo (Make sure 'vascura_logo.png' is in the same folder!)
+img_base64 = get_img_as_base64("vascura_logo.png")
 
 # --- SYSTEM CONFIGURATION ---
 st.set_page_config(
@@ -42,16 +55,34 @@ st.markdown("""
     padding: 80px 20px;
     background: radial-gradient(circle at center, rgba(0, 242, 255, 0.08) 0%, transparent 70%);
 }
+# .hero-title {
+#     font-family: 'Plus Jakarta Sans', sans-serif !important;
+#     font-size: 7rem !important;
+#     font-weight: 800 !important;
+#     letter-spacing: -0.05em !important;
+#     margin-bottom: 0px !important;
+#     background: linear-gradient(to bottom, #fff 40%, #64748b);
+#     -webkit-background-clip: text;
+#     -webkit-text-fill-color: transparent;
+# }
+/* ... keep your other CSS ... */
+
 .hero-title {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 7rem !important;
     font-weight: 800 !important;
-    letter-spacing: -0.05em !important;
+    letter-spacing: -0.03em !important;
     margin-bottom: 0px !important;
-    background: linear-gradient(to bottom, #fff 40%, #64748b);
+    
+    background: linear-gradient(180deg, #1f6fa5 10%, #0a1018 100%);
+    
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
+    /* Optional: Adds a subtle shadow to lift it off the page */
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
 }
+
 .hero-subtitle {
     font-size: 1rem;
     letter-spacing: 0.6em;
@@ -109,16 +140,29 @@ h3, h4 {
 </style>
 """, unsafe_allow_html=True)
 
-# --- HERO SECTION ---
-st.markdown("""
-<div class="hero-container">
-<img src="vascura_logo.png" style="width:120px; margin-bottom:20px;" />
+# # --- HERO SECTION ---
+# st.markdown("""
+# <div class="hero-container">
+# <img src="vascura_logo.png" style="width:120px; margin-bottom:20px;" />
 
-<h1 class="hero-title">VASCURA</h1>
-<p class="hero-subtitle">HydroNet</p>
-<p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #020408; font-family: 'Plus Jakarta Sans';">
-A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
-</p>
+# <h1 class="hero-title">VASCURA</h1>
+# <p class="hero-subtitle">HydroNet</p>
+# <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #020408; font-family: 'Plus Jakarta Sans';">
+# A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
+# </p>
+# </div>
+# """, unsafe_allow_html=True)
+
+# --- HERO SECTION ---
+st.markdown(f"""
+<div class="hero-container">
+    <img src="data:image/png;base64,{img_base64}" style="width:150px; margin-bottom:25px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" />
+
+    <h1 class="hero-title">VASCURA</h1>
+    <p class="hero-subtitle">HydroNet</p>
+    <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #475569; font-family: 'Plus Jakarta Sans'; font-weight: 500;">
+    A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
