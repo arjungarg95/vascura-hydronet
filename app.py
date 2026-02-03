@@ -22,7 +22,7 @@ img_base64 = get_img_as_base64("Untitled_design-removebg-preview.png")
 # --- SYSTEM CONFIGURATION ---
 st.set_page_config(
     page_title="Vascura HydroNet",
-    page_icon="💠",
+    page_icon="Untitled_design-removebg-preview.png",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -158,8 +158,7 @@ h3, h4 {
 # --- HERO SECTION ---
 st.markdown(f"""
 <div class="hero-container">
-<img src="data:image/png;base64,{img_base64}" style="width:150px; margin-bottom:25px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" />
-
+<img src="data:image/png;base64,{img_base64}" style="width:150px; margin-bottom:0px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" />
 <h1 class="hero-title">VASCURA</h1>
 <p class="hero-subtitle">HydroNet</p>
 <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #475569; font-family: 'Plus Jakarta Sans'; font-weight: 500;">
