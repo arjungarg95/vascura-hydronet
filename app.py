@@ -67,21 +67,21 @@ st.markdown("""
 # }
 /* ... keep your other CSS ... */
 
-.hero-title {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 7rem !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.03em !important;
-    margin-bottom: 0px !important;
+# .hero-title {
+#     font-family: 'Plus Jakarta Sans', sans-serif !important;
+#     font-size: 7rem !important;
+#     font-weight: 800 !important;
+#     letter-spacing: -0.03em !important;
+#     margin-bottom: 0px !important;
     
-    background: linear-gradient(180deg, #1f6fa5 10%, #0a1018 100%);
+#     background: linear-gradient(180deg, #1f6fa5 10%, #0a1018 100%);
     
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+#     -webkit-background-clip: text;
+#     -webkit-text-fill-color: transparent;
     
-    /* Optional: Adds a subtle shadow to lift it off the page */
-    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
-}
+#     /* Optional: Adds a subtle shadow to lift it off the page */
+#     filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
+# }
 
 .hero-subtitle {
     font-size: 1rem;
@@ -156,13 +156,13 @@ h3, h4 {
 # --- HERO SECTION ---
 st.markdown(f"""
 <div class="hero-container">
-    <img src="data:image/png;base64,{img_base64}" style="width:150px; margin-bottom:25px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" />
+<img src="data:image/png;base64,{img_base64}" style="width:150px; margin-bottom:25px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" />
 
-    <h1 class="hero-title">VASCURA</h1>
-    <p class="hero-subtitle">HydroNet</p>
-    <p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #475569; font-family: 'Plus Jakarta Sans'; font-weight: 500;">
-    A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
-    </p>
+<h1 class="hero-title">VASCURA</h1>
+<p class="hero-subtitle">HydroNet</p>
+<p style="max-width: 850px; margin: 25px auto; font-size: 1.25rem; color: #475569; font-family: 'Plus Jakarta Sans'; font-weight: 500;">
+A bio-inspired infrastructure platform that treats urban stormwater systems as living vascular networks — designed to protect ecosystems at the source.
+</p>
 </div>
 """, unsafe_allow_html=True)
 
